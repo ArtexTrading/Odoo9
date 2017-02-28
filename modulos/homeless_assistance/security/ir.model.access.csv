@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_book_edition_guest,book edition guest,model_book_edition,book_library.group_booklibrary_guest,1,0,0,0
+access_book_edition_user,book edition user,model_book_edition,book_library.group_booklibrary_user,1,0,0,0
+access_book_edition_manager,book edition manager,model_book_edition,book_library.group_booklibrary_manager,1,1,1,1

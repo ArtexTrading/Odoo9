@@ -1,0 +1,41 @@
+<odoo>
+    <!-- views -->
+    <record id="view_wizard_hr_attendance_fix_employee" model="ir.ui.view">
+        <field name="name">view.wizard.hr.attendance.fix.employee</field>
+        <field name="model">hr.attendance.fix.employee</field>
+        <field name="arch" type="xml">
+            <form name="hr_attendance_fix_employee_form"
+                  string="Fix employee from Badge ID">
+                <sheet>
+                    <p class="oe_grey" name="text">
+                        This process will attempt to resolve the employee's
+                        identifier based on the Badge ID reported.
+                        The processing time will depend on the number of
+                        records selected.
+                    </p>
+                </sheet>
+                <footer>
+                    <button name="button_wizard_hr_attendance_fix_employee"
+                            type="object"
+                            class="oe_highlight"
+                            string="Fix employees"
+                    />
+                    <button name="button_wizard_cancel"
+                            special="cancel"
+                            string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- actions -->
+    <act_window
+        id="action_fix_employee"
+        name="Fix employee ID"
+        res_model="hr.attendance.fix.employee"
+        src_model="hr.attendance.incidence"
+        multi="True"
+        key2="client_action_multi"
+        view_mode="form"
+        target="new" />
+</odoo>

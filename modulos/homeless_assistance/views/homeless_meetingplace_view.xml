@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <act_window id="action_homeless_meetingplace"
+                    name="Meeting Places"
+                    res_model="homeless.meetingplace"
+                    view_type="form"
+                    view_mode="tree,form"
+        />
+    </data>
+
+    <record id="view_homeless_meetingplace_search" model="ir.ui.view">
+        <field name="model">homeless.meetingplace</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="route_id" string="Route"/>
+                <field name="name" string="Meeting Place"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_by_route_id" string="Route" context="{'group_by': 'route_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_homeless_meetingplace_tree" model="ir.ui.view">
+        <field name="model">homeless.meetingplace</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="route_id"/>
+                <field name="name"/>
+                <field name="note" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_homeless_meetingplace_form" model="ir.ui.view">
+        <field name="model">homeless.meetingplace</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="route_id"/>
+                            <field name="sequence" readonly="1"/>
+                        </group>
+                    </group>
+                    <h1>Notes</h1>
+                    <field name="note"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

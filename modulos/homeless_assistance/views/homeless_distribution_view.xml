@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <act_window id="action_homeless_distribution"
+                    name="Distributions"
+                    res_model="homeless.distribution"
+                    view_type="form"
+                    view_mode="tree,form"
+        />
+    </data>
+
+    <record id="view_homeless_distribution_tree" model="ir.ui.view">
+        <field name="model">homeless.distribution</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_distribution"/>
+                <field name="state"/>
+                <field name="route_id"/>
+                <field name="responsible_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_homeless_distribution_form" model="ir.ui.view">
+        <field name="model">homeless.distribution</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state"
+                           widget="statusbar"
+                           clickable="True"
+                           statusbar_colors='{"cancel": "red"}'/>
+                </header>
+                <sheet>
+                    <group id="distribution_group">
+                        <group id="distribution_data">
+                            <field name="route_id"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group id="distribution_date">
+                            <field name="date_distribution"/>
+                        </group>
+                    </group>
+                    <notebook name="distribution_options" colspan="4">
+                        <page name="distribution_line" string="Meetings Place">
+                            <field name="distribution_line_ids"
+                                   mode="tree,kanban"
+                                   attrs="{'readonly': [('state',
+                                                         'in',
+                                                         ('done','cancel'))]}"
+                            />
+                        </page>
+                        <page name="summary" string="Summary">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

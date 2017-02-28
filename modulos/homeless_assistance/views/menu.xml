@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <act_window id="action_homeless_contact"
+                    name="Contacts"
+                    res_model="res.partner"
+                    view_type="form"
+                    view_mode="kanban,tree,form"
+        />
+
+        <act_window id="action_homeless_distribution"
+                    name="Distributions"
+                    res_model="homeless.distribution"
+                    view_type="form"
+                    view_mode="tree,form"
+        />
+
+        <record id="action_homeless_meetingplace" model="ir.actions.act_window">
+            <field name="name">Meeting Places</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">homeless.meetingplace</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'group_by': 'route_id'}</field>
+        </record>
+
+        <act_window id="action_homeless_route"
+                    name="Routes"
+                    res_model="homeless.route"
+                    view_type="form"
+                    view_mode="tree,form"
+        />
+
+        <menuitem id="menu_homeless_main"
+                  name="Homeless Assistance"
+                  sequence="999"
+        />
+
+        <menuitem id="menu_homeless_contact"
+                  name="Contact"
+                  parent="menu_homeless_main"
+                  action="action_homeless_contact"
+        />
+
+        <menuitem id="menu_homeles_distribution"
+                  name="Distribution"
+                  parent="menu_homeless_main"
+                  action="action_homeless_distribution"
+        />
+
+        <menuitem id="menu_homeless_config"
+                  name="Configuration"
+                  parent="menu_homeless_main"
+        />
+
+        <menuitem id="menu_homeless_config_meetingplace"
+                  name="Meeting Place"
+                  parent="menu_homeless_config"
+                  action="action_homeless_meetingplace"
+        />
+
+        <menuitem id="menu_homeless_config_route"
+                  name="Route"
+                  parent="menu_homeless_config"
+                  action="action_homeless_route"
+        />
+    </data>
+</odoo>
