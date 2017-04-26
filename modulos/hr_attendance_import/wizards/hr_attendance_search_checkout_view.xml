@@ -21,6 +21,7 @@
                     <h1>Attendance</h1>
                     <field name="line_ids">
                         <tree create="false" edit="false">
+                        <tree create="false" edit="false" editable="bottom">
                             <field name="employee_id" />
                             <field name="check_in" />
                             <field name="check_out" />
